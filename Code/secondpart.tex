@@ -1,0 +1,16 @@
+
+// The initial state of the light
+let initialState = false
+
+
+// Coordinates function to wrap around edges
+let coordinates (value: float) (maxValue: float) =
+    if value < 0.0 then maxValue + value
+    elif value > maxValue then value - maxValue
+    else value
+
+// Size of the window
+let w, h = 800.0, 600.0
+
+// Light position
+let lightPos: Vectors.Vec = (w / 2.0, h / 3.0 + 40.0)
