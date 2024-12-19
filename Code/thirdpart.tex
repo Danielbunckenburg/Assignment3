@@ -1,0 +1,33 @@
+
+type Moth(pos: Vectors.Vec, hdng: float) =
+    let mutable pos2 = pos
+    let mutable hdng2 = hdng
+
+    new() =
+        let randomX = float (rnd.Next(0, int w))
+        let randomY = float (rnd.Next(0, int h))
+        let randomHeading = rnd.NextDouble() * 360.0
+        Moth((randomX, randomY), randomHeading)
+
+    member this.pos = pos2
+    member this.hdng = hdng2
+
+    member this.draw(): PrimitiveTree =
+        let (x, y) = pos2
+        filledEllipse lightGray 5 5
+        |> translate x y
+
+
+    member this.move(lightOn: bool) =
+        if lightOn then
+            // Calculate vector to light and normalize
+            let direction = Vectors.sub lightPos pos2 |> Vectors.norm
+            pos2 <- Vectors.add pos2 (Vectors.scale direction 2.0)
+            pos2 <- (coordinates (fst pos2) w, coordinates (snd pos2) h)
+        else
+            // Random wandering when light is off
+            hdng2 <- hdng2 + (rnd.NextDouble() - 0.5) * 10.0
+            let movement = Vectors.rot (1.0, 0.0) (hdng2 * Math.PI / 180.0)
+            let movementScaled = Vectors.scale movement 2.0
+            pos2 <- Vectors.add pos2 movementScaled
+            pos2 <- (coordinates (fst pos2) w, coordinates (snd pos2) h)

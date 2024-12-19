@@ -1,0 +1,23 @@
+
+// Draw function that collects the different objects drawn above into one
+let draw (state: bool) :Picture =
+    onto (drawMoths moths)  (drawLight state) |> make
+
+
+
+// React function, considers interactions in the canvas
+let react (state: bool) (event: Event): bool option =
+    match event with
+    | Event.TimerTick -> 
+        moveMoths moths state // Update moths' positions at each tick
+        Some state 
+    | Event.Key k ->
+        match Key k with
+        | Key ' ' -> // Handle space as the toggle for the light
+            Some (not state)
+        | _ -> Some state
+    | _ -> Some state
+
+// Simulation, the unknown function makes sure the draw function takes the initialState and react into consideration
+interact "Moths" (int w) (int h) (Some 20) (fun state -> draw state) react initialState
+

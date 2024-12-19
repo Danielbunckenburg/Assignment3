@@ -1,0 +1,17 @@
+
+// Function that makes the moths move
+let moveMoths (moths: Moth list) (lightOn: bool) =
+    moths |> List.iter (fun moth -> moth.move(lightOn))
+
+
+// Light design
+let lightBulb =
+    filledEllipse white 25.0 25.0
+    |> translate (fst lightPos) (snd lightPos)
+
+// Function of light 
+let drawLight (state: bool) = 
+    if state then
+        lightBulb
+    else 
+        emptyTree

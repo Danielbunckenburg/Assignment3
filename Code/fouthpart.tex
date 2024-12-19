@@ -1,0 +1,14 @@
+
+// Function generating a list of moths
+let makeMoths amount: Moth list =
+    [ for i in 1..amount -> Moth() ]
+
+let moths = makeMoths 5
+
+
+// Function that separates the moths in the Moth list and draws them via the this.draw member
+let drawMoths (moths: Moth list) =
+    moths
+    |> List.fold (fun acc moth ->onto  acc  (moth.draw())) emptyTree
+
+// Function that makes the moths move

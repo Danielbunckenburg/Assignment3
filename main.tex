@@ -23,18 +23,177 @@
 
 \section{Part 1}
 
+\subsection{}
+My group is Filip and Rut
+
+\subsection{}
+
+
+During our meeting, we talked and discussed the assignment and shared our ideas on how
+to tackle different problems. We made sure that everyone is on the same page regarding
+technicalities and assignment requirements. ???
+
+
+\subsection{}
+
+Souces is chatGPT, Astoide, Cavas minigame,pacman, and moving box
+
+
+
 \section{Part 2}
 
 \subsection{Question A}
- Describe how your solution relies on the object-oriented programming paradigm.
 
- \subsection{Question B}
+In my solution i use object-oriented programming by the moths type and the cavas libary. I create moths objects with the properties or fields of a position and an heading. The i created the move methoed and draw methoed and using the primanytree object in cavas. And the function 
 
-Describe the type Vec and explain how your solution makes use it.
+By making an obejct, with both state and behavior it is possible to create multiple moth objects easily each with its unique state (position and heading) and behavior enabling modular making it reusable. 
 
- \subsection{Question C}
 
-First part of the code first loads the 
+OOP fundamentally revolves around defining classes (or types) that represent blueprints for creating objects (instances).
+
+
+The Moth type serves as a class equivalent, and 
+
+
+Constructors: new() creates a moth with random initial state.
+
+
+
+The moth's state (pos and hdng) and its behavior (move and draw) are closely tied, illustrating the core OOP principle of associating data with the methods that operate on it.
+
+
+This code relies on OOP principles by modeling moths as self-contained objects that encapsulate state (pos and hdng) and behavior (draw and move). This design ensures modularity, reusability, and abstraction, making the simulation extensible and easy to manage.
+
+
+
+
+in addition to my own code i also use code from diku-canvas where i use the "draw (only drawing)" and react (only change of state) functions do.
+
+
+
+\subsection{Question B}
+
+Describe the type Vec describe a 2D vector and explain how your solution makes use it. I use the Vec from astroide when the light get turn on, to 
+
+
+I include in the module part, and open the module "open Asteroids" where the 
+
+
+I use the vec type multiple places, for repesenting the posiont for example with lightPos for the coordinates for in the middle and for the moth position.
+
+using it for vector operation for example calculates the vector from the moth's current position (pos2) to the light's position (lightPos) using "vector.sub". 
+
+and for converts the direction vector to a unit vector (i.e., a vector with a length of 1) to ensure consistent movement speed using "Vectors.norm"
+
+and for adjusting the speed of the moth’s movement by multiplies the unit vector by a scalar (2.0) "Vectors.scale direction 2.0".
+
+and for rotating a vector (1.0, 0.0) (representing movement in the x-direction) by the moth's current heading (hdng2), converting the angle from degrees to radians. let movement = Vectors.rot (1.0, 0.0) (hdng2 * Math.PI / 180.0)
+
+
+finally it is used for Coordinate Wrapping by "pos2 <- (coordinates (fst pos2) w, coordinates (snd pos2) h)"
+
+The fst and snd functions extract the x and y components of the Vec (tuple), allowing the coordinates function to wrap each component independently.
+
+
+
+
+[-] The relation between the signature and the implementation file is understood.
+
+
+\subsection{Question C}
+
+First part of the code first loads the package from DIKU and load the aseroide.fs so it can be used. After that it opens the different modules eg. Cavas, astroides.vectore, astroide.randomgenerator
+
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/firstpart.tex}
+\caption{First part}
+\label{app:vec_example}
+\end{listing}
+
+
+
+In the next part I set the inital states of the program like, the light state, the hight and wide and position of the light.In order to make sure that the mods is moving cyclic, i also make this condition in the let coordinates NB more expainling  
+
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/secondpart.tex}
+\caption{second part}
+\label{app:vec_example}
+\end{listing}
+
+In the next part i define the type Moth. First i make mutable varable pos2 and hdng2, with the values of the inputs pos and hdng. 
+
+after that i make the new function as stated in the assignment. Where i make a random x value, y value and a random heading that is in degrees that is why i times it with 360. 
+
+Then i make the member this.pos to be the mutable pos2. and member this.hdng to be the mutable hdng2.
+
+Then i make the draw function that is defined in the assignment where the return type is a PrimitiveTree. Where i create a Ellipse that have the color white and have radius in the x and y direction of 5x5 on each side. Then i used the highordere function "translate" that moves a pictures in the x and y direction using the mutable variable pos2.
+
+
+The there is the move part NBNB need more work here.
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/thirdpart.tex}
+\caption{second part}
+\label{app:vec_example}
+\end{listing}
+
+
+The next part is to do with the moths. First i make the moth objects using the moth() using a for loop i can create as many moths objects as i want in this case i create 5 by setting the amount to 5, and letting the loop go from 1 to amount. 
+
+after that i create a function that is taken from minigame that makes it easier to use the onto function with pictures. The Onto function places one graphic primitive tree on top of another. 
+
+the last function is the drawMoths that as input the moth object. From this it takes the list of moths and uses the high-order function list.fold() that takes 3 parameteres, first a function. This function is applied to each element (moth) in the list, along with the accumulated value. then an initial accumulator value witch should be the emptytree here, and finally the list to irritate over in this case the Moths.
+
+
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/fouthpart.tex}
+\caption{fouth part}
+\label{app:vec_example}
+\end{listing}
+
+Then there is the next part where i create a function that makes the movement of the moths. It takes as input the list of object and a bool if the light is on or off that affects the movement. 
+
+
+the "moths |>" means that the list.iter is applyed to the list of moth. 
+List.iter is a higher-order function that applies a given function to each element in the list.  In this case it uses the the move method that updates the moth’s position based on the value of lightOn.
+
+the next function is one that makes an light appear. It creates an Ellipse that is white and have radius in the x and y direction of 25X25 an x and y values from lightPos.
+
+
+then finally there is the 
+
+drawLight function that takes the state with the type of a bool, as input
+then there is a if statement that returns lightbulb if it is true and if false then return emptyTree
+
+
+then the final function is the draw function that takes as input the state as a bool and return type is a picture. It uses the function onto from to combine two PrimitiveTree, in this case the drawMoths  PrimitiveTree from before and the drawlight, that returns emptytree if the state is false. these two PrimitiveTree then uses a pipeline into the function make that takes a PrimitiveTree and return a picture. 
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/fifthpart.tex}
+\caption{fouth part}
+\label{app:vec_example}
+\end{listing}
+
+
+
+then finally there is the last part. 
+
+\label{app:appA}
+\begin{listing}[!ht]
+\inputminted{fsharp}{Code/sixpart.tex}
+\caption{fouth part}
+\label{app:vec_example}
+\end{listing}
+
+
 
 
 \end{document}
