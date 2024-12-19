@@ -1,0 +1,5 @@
+C:\Users\Danie\OneDrive - University of Copenhagen\KU\Datalogi\Pop\Assignments\Assignment3\scr\asteroids\obj\Debug\net8.0\asteroids.fsproj.AssemblyReference.cache
+C:\Users\Danie\OneDrive - University of Copenhagen\KU\Datalogi\Pop\Assignments\Assignment3\scr\asteroids\obj\Debug\net8.0\asteroids.AssemblyInfoInputs.cache
+C:\Users\Danie\OneDrive - University of Copenhagen\KU\Datalogi\Pop\Assignments\Assignment3\scr\asteroids\obj\Debug\net8.0\asteroids.AssemblyInfo.fs
+C:\Users\Danie\OneDrive - University of Copenhagen\KU\Datalogi\Pop\Assignments\Assignment3\scr\asteroids\obj\Debug\net8.0\asteroids.fsproj.CoreCompileInputs.cache
+C:\Users\Danie\OneDrive - University of Copenhagen\KU\Datalogi\Pop\Assignments\Assignment3\scr\asteroids\obj\Debug\net8.0\asteroids.sourcelink.json

@@ -6,8 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DIKU.Canvas" Version="2.0" />
     <Compile Include="mothApp.fsx" />
-    <Compile Include="asteroids.fs" />
   </ItemGroup>
 
 </Project>
+

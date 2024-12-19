@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "X63h0I3nfNQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Danie\\OneDrive - University of Copenhagen\\KU\\Datalogi\\Pop\\Assignments\\Assignment3\\scr\\mothApp\\mothApp.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Danie\\.nuget\\packages\\diku.canvas\\2.0.0\\diku.canvas.2.0.0.nupkg.sha512",
+    "C:\\Users\\Danie\\.nuget\\packages\\fsharp.core\\8.0.400\\fsharp.core.8.0.400.nupkg.sha512",
+    "C:\\Users\\Danie\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",
+    "C:\\Users\\Danie\\.nuget\\packages\\sixlabors.imagesharp\\3.0.1\\sixlabors.imagesharp.3.0.1.nupkg.sha512",
+    "C:\\Users\\Danie\\.nuget\\packages\\sixlabors.imagesharp.drawing\\1.0.0\\sixlabors.imagesharp.drawing.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
